@@ -14,6 +14,11 @@
 		2B1E06C6274F02E100B53E79 /* AnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06C5274F02E100B53E79 /* AnyViewModel.swift */; };
 		2B1E06C9274F030700B53E79 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06C8274F030700B53E79 /* ViewModel.swift */; };
 		2B1E06CC274F049400B53E79 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06CB274F049400B53E79 /* StartViewModel.swift */; };
+		2B1E06E4274FEFF600B53E79 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */; };
+		2B2C015727502C9500CFCC3B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2C015627502C9500CFCC3B /* Router.swift */; };
+		2B2C015A27502D7A00CFCC3B /* NavigationRouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2C015927502D7A00CFCC3B /* NavigationRouterView.swift */; };
+		2B2C015D27502F2300CFCC3B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2C015C27502F2300CFCC3B /* LoginViewModel.swift */; };
+		2B2C016127502FC200CFCC3B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2C016027502FC200CFCC3B /* AppRouter.swift */; };
 		2BE60C63274EFC310004E268 /* BonusFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE60C62274EFC310004E268 /* BonusFactoryApp.swift */; };
 		2BE60C65274EFC310004E268 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE60C64274EFC310004E268 /* TabBarView.swift */; };
 		2BE60C67274EFC3A0004E268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE60C66274EFC3A0004E268 /* Assets.xcassets */; };
@@ -28,6 +33,11 @@
 		2B1E06C5274F02E100B53E79 /* AnyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyViewModel.swift; sourceTree = "<group>"; };
 		2B1E06C8274F030700B53E79 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		2B1E06CB274F049400B53E79 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2B2C015627502C9500CFCC3B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2B2C015927502D7A00CFCC3B /* NavigationRouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouterView.swift; sourceTree = "<group>"; };
+		2B2C015C27502F2300CFCC3B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2B2C016027502FC200CFCC3B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		2BE60C5F274EFC310004E268 /* BonusFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BonusFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE60C62274EFC310004E268 /* BonusFactoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusFactoryApp.swift; sourceTree = "<group>"; };
 		2BE60C64274EFC310004E268 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -70,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				2B1E06B0274EFE6000B53E79 /* LoginScene.swift */,
+				2B2C015C27502F2300CFCC3B /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -78,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				2B1E06B7274EFFA100B53E79 /* AuthService.swift */,
+				2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */,
 				2B1E06BA274EFFDB00B53E79 /* Services.swift */,
 			);
 			path = Services;
@@ -102,6 +114,7 @@
 		2B1E06C4274F02CB00B53E79 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				2B2C016427502FEF00CFCC3B /* Router */,
 				2B1E06C5274F02E100B53E79 /* AnyViewModel.swift */,
 				2B1E06C8274F030700B53E79 /* ViewModel.swift */,
 			);
@@ -115,6 +128,16 @@
 				2B1E06B6274EFF7500B53E79 /* Managers */,
 			);
 			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		2B2C016427502FEF00CFCC3B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2B2C016027502FC200CFCC3B /* AppRouter.swift */,
+				2B2C015927502D7A00CFCC3B /* NavigationRouterView.swift */,
+				2B2C015627502C9500CFCC3B /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		2BE60C56274EFC310004E268 = {
@@ -223,11 +246,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2C015727502C9500CFCC3B /* Router.swift in Sources */,
 				2B1E06C6274F02E100B53E79 /* AnyViewModel.swift in Sources */,
 				2B1E06BB274EFFDB00B53E79 /* Services.swift in Sources */,
+				2B1E06E4274FEFF600B53E79 /* NetworkManager.swift in Sources */,
+				2B2C016127502FC200CFCC3B /* AppRouter.swift in Sources */,
 				2B1E06BE274F012000B53E79 /* StartScene.swift in Sources */,
+				2B2C015A27502D7A00CFCC3B /* NavigationRouterView.swift in Sources */,
 				2BE60C65274EFC310004E268 /* TabBarView.swift in Sources */,
 				2B1E06CC274F049400B53E79 /* StartViewModel.swift in Sources */,
+				2B2C015D27502F2300CFCC3B /* LoginViewModel.swift in Sources */,
 				2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */,
 				2BE60C63274EFC310004E268 /* BonusFactoryApp.swift in Sources */,
 				2B1E06C9274F030700B53E79 /* ViewModel.swift in Sources */,

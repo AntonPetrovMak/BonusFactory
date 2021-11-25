@@ -7,7 +7,18 @@
 
 import SwiftUI
 
+struct LoginState {
+    
+}
+
+enum LoginEvent {
+    
+}
+
 struct LoginScene: View {
+    
+    @ObservedObject var viewModel: AnyViewModel<LoginState, LoginEvent>
+    
     var body: some View {
         Text("Login!")
             .padding()

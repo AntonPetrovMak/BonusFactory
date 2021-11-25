@@ -7,17 +7,15 @@
 
 import Foundation
 
-class Services {
-    
-    static let shared = Services()
-    
-    let authService: AuthService
-    
-    private init() {
-        authService = AuthService()
-    }
+protocol Services {
+    var authService: AuthService { get }
+}
 
-    func configServices() {
+class AppServices: Services {
+    var authService: AuthService
         
+    init() {
+        let networkManager = AppNetworkManager()
+        self.authService = AppAuthService(networkManager: networkManager)
     }
 }

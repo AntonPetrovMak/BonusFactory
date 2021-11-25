@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct StartState {
-    let isLoading: Bool
+    var isLoading: Bool
 }
 
 enum StartEvent {
-
+    case onLogin
 }
 
 struct StartScene: View {
@@ -20,13 +20,14 @@ struct StartScene: View {
     @ObservedObject var viewModel: AnyViewModel<StartState, StartEvent>
     
     var body: some View {
-        if viewModel.state.isLoading {
-            Text("Loading ...!")
-                .padding()
-        } else {
-            Text("Loaded")
-                .padding()
+        VStack {
+            Button("Log in") {
+                viewModel.trigger(.onLogin)
+            }
+            if viewModel.state.isLoading {
+                Text("Loading ...!")
+                    .padding()
+            }
         }
-        
     }
 }
