@@ -6,23 +6,21 @@
 //
 
 import Foundation
-
-import Foundation
 import Combine
 
-class LoginViewModel: ViewModel {
-    @Published var state: LoginState
+class LoginViewModel: LoginVMP {
+    @Published var phone: String = ""
     
     private let services: Services
-    private let router: Router
-    
-    init(services: Services, router: Router) {
+
+    init(services: Services) {
         self.services = services
-        self.router = router
-        state = .init()
     }
 
-    func trigger(_ event: LoginEvent) {
-
+    func onNext() {
+        Logger.print("Phone: \(phone)")
+        services.authService.login(phone: phone) { error in
+            Logger.print("Error: \(error.debugDescription)")
+        }
     }
 }

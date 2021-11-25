@@ -7,20 +7,23 @@
 
 import SwiftUI
 
-struct LoginState {
+protocol LoginVMP: ObservableObject {
+    var phone: String { get set }
     
+    func onNext()
 }
 
-enum LoginEvent {
-    
-}
+struct LoginScene<ViewModel: LoginVMP>: View {
 
-struct LoginScene: View {
-    
-    @ObservedObject var viewModel: AnyViewModel<LoginState, LoginEvent>
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        Text("Login!")
-            .padding()
+        VStack(alignment: .center) {
+            TextField("+38 (093) 000 00 00", text: $viewModel.phone)
+                .keyboardType(.phonePad)
+            Button("Next", action: viewModel.onNext)
+        }
+        .padding()
+        .navigationTitle(Text("Welcome!"))
     }
 }

@@ -12,17 +12,15 @@ struct BonusFactoryApp: App {
     
     @Environment(\.scenePhase) var scenePhase
     private let services: Services
-    private let router: AppRouter
     
     init() {
         let services = AppServices()
         self.services = services
-        self.router = AppRouter(services: services)
     }
     
     var body: some SwiftUI.Scene {
         WindowGroup {
-            router.scene()
+            AppRouterView(router: AppRouter(services: services))
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {
