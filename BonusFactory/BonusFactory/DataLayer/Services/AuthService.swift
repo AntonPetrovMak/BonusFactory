@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import FirebaseAuth
 
 typealias VoidHandler = () -> Void
 typealias ErrorHandler = (Error?) -> Void
@@ -29,9 +30,20 @@ class AppAuthService: AuthService {
     }
 
     func login(phone: String, completion: @escaping ErrorHandler) {
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber("+380939858899", uiDelegate: nil) { verificationID, error in
+                if let verificationID = verificationID {
+                    Logger.print("VerificationID: \(verificationID)")
+                    self.isLoggedIn.send(true)
+                    completion(nil)
+                } else {
+                    completion(error)
+                    //Logger.print("Error: \(error.debugDescription)")
+                }
+            }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.isLoggedIn.send(true)
-            completion(nil)
+            
+            
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct BonusFactoryApp: App {
@@ -14,6 +15,7 @@ struct BonusFactoryApp: App {
     private let services: Services
     
     init() {
+        FirebaseApp.configure()
         let services = AppServices()
         self.services = services
     }
