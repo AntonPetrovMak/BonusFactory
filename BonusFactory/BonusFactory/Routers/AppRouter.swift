@@ -16,7 +16,7 @@ enum AppRouterScreen {
 
 class AppRouter: ObservableObject {
     // MARK: - Published vars
-    @Published var screen: AppRouterScreen = .login
+    @Published var screen: AppRouterScreen = .launch
     
     // MARK: - Private vars
     private var services: Services

@@ -15,6 +15,7 @@ struct BonusFactoryApp: App {
     private let services: Services
 
     init() {
+        FirebaseApp.configure()
         let services = AppServices()
         self.services = services
     }
@@ -29,7 +30,6 @@ struct BonusFactoryApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
         return true
     }
     
