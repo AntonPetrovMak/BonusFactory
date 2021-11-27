@@ -40,7 +40,8 @@ class AppRouter: ObservableObject {
             } else {
                 self?.screen = .login
             }
-        }.store(in: &self.anyCancellables)
+        }
+        .store(in: &self.anyCancellables)
     }
     
     // MARK: - Methods

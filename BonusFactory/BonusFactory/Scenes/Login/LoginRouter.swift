@@ -8,11 +8,17 @@
 import Combine
 import SwiftUI
 
+protocol LoginRouterProtocol {
+    func showConfirmScene()
+}
+
 class LoginRouter: ObservableObject {
     
     // MARK: - Private vars
     private var services: Services
-        
+    private var anyCancellables = Set<AnyCancellable>()
+
+    @Published var isActive = false
     // MARK: - Initialization
     init(services: Services) {
         self.services = services
@@ -25,13 +31,17 @@ class LoginRouter: ObservableObject {
     
     // MARK: - Methods
     @ViewBuilder func loginScreen() -> some View {
-        LoginScene(viewModel: LoginViewModel(services: services))
+        LoginScene(viewModel: LoginViewModel(services: services, router: self))
     }
     
     @ViewBuilder func confirmSMSScene() -> some View {
-        VStack {
-            Text("Confirm SMS")
-        }
+        ConfirmSMSScene(viewModel: ConfirmSMSViewModel(services: services))
+    }
+}
+
+extension LoginRouter: LoginRouterProtocol {
+    func showConfirmScene() {
+        isActive = true
     }
 }
 
@@ -40,7 +50,10 @@ struct LoginRouterView: View {
     
     var body: some View {
         NavigationView {
-            self.router.loginScreen()
+            VStack {
+                self.router.loginScreen()
+                NavigationLink("", destination: self.router.confirmSMSScene(), isActive: $router.isActive)
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

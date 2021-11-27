@@ -17,6 +17,8 @@
 		2B81A4CC27504EA2004A2356 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B81A4CB27504EA2004A2356 /* GoogleService-Info.plist */; };
 		2B81A4D1275050D4004A2356 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2B81A4D0275050D4004A2356 /* FirebaseAuth */; };
 		2B81A4D3275050D4004A2356 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2B81A4D2275050D4004A2356 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		2B81A4DE275156A5004A2356 /* ConfirmSMSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81A4DD275156A5004A2356 /* ConfirmSMSScene.swift */; };
+		2B81A4E2275156BE004A2356 /* ConfirmSMSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81A4E1275156BE004A2356 /* ConfirmSMSViewModel.swift */; };
 		2B93BDE327503F0D0006BF24 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B93BDE227503F0D0006BF24 /* LoginRouter.swift */; };
 		2B93BDE627503F2E0006BF24 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B93BDE527503F2E0006BF24 /* AppRouter.swift */; };
 		2B93BDE927503FEC0006BF24 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B93BDE827503FEC0006BF24 /* Logger.swift */; };
@@ -35,6 +37,8 @@
 		2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2B2C015C27502F2300CFCC3B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2B81A4CB27504EA2004A2356 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B81A4DD275156A5004A2356 /* ConfirmSMSScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSMSScene.swift; sourceTree = "<group>"; };
+		2B81A4E1275156BE004A2356 /* ConfirmSMSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSMSViewModel.swift; sourceTree = "<group>"; };
 		2B93BDE227503F0D0006BF24 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		2B93BDE527503F2E0006BF24 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		2B93BDE827503FEC0006BF24 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 		2B1E06AD274EFE1300B53E79 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2B81A4DC27515688004A2356 /* ConfirmSMS */,
 				2B1E06AF274EFE3300B53E79 /* Login */,
 				2B1E06C1274F012500B53E79 /* Start */,
 			);
@@ -112,6 +117,15 @@
 				2B1E06B6274EFF7500B53E79 /* Managers */,
 			);
 			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		2B81A4DC27515688004A2356 /* ConfirmSMS */ = {
+			isa = PBXGroup;
+			children = (
+				2B81A4DD275156A5004A2356 /* ConfirmSMSScene.swift */,
+				2B81A4E1275156BE004A2356 /* ConfirmSMSViewModel.swift */,
+			);
+			path = ConfirmSMS;
 			sourceTree = "<group>";
 		};
 		2B93BDF9275045F70006BF24 /* Routers */ = {
@@ -242,10 +256,12 @@
 				2B1E06BB274EFFDB00B53E79 /* Services.swift in Sources */,
 				2B1E06E4274FEFF600B53E79 /* NetworkManager.swift in Sources */,
 				2B1E06BE274F012000B53E79 /* LaunchScene.swift in Sources */,
+				2B81A4E2275156BE004A2356 /* ConfirmSMSViewModel.swift in Sources */,
 				2B1E06CC274F049400B53E79 /* LaunchViewModel.swift in Sources */,
 				2B93BDF2275043E60006BF24 /* TabBarRouter.swift in Sources */,
 				2B2C015D27502F2300CFCC3B /* LoginViewModel.swift in Sources */,
 				2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */,
+				2B81A4DE275156A5004A2356 /* ConfirmSMSScene.swift in Sources */,
 				2B93BDE927503FEC0006BF24 /* Logger.swift in Sources */,
 				2B93BDE627503F2E0006BF24 /* AppRouter.swift in Sources */,
 				2BE60C63274EFC310004E268 /* BonusFactoryApp.swift in Sources */,

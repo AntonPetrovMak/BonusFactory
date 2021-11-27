@@ -11,11 +11,10 @@ import Firebase
 @main
 struct BonusFactoryApp: App {
     
-    @Environment(\.scenePhase) var scenePhase
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     private let services: Services
-    
+
     init() {
-        FirebaseApp.configure()
         let services = AppServices()
         self.services = services
     }
@@ -24,17 +23,34 @@ struct BonusFactoryApp: App {
         WindowGroup {
             AppRouterView(router: AppRouter(services: services))
         }
-        .onChange(of: scenePhase) { (newScenePhase) in
-            switch newScenePhase {
-            case .background:
-                print("App State : Background")
-            case .inactive:
-                print("App State : Inactive")
-            case .active:
-                print("App State : Active")
-            @unknown default:
-                print("App State : Unknown")
-            }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("\(#function)")
+        Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification notification: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("\(#function)")
+        if Auth.auth().canHandleNotification(notification) {
+            completionHandler(.noData)
+            return
         }
+    }
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        print("\(#function)")
+        if Auth.auth().canHandle(url) {
+            return true
+        }
+        return false
     }
 }

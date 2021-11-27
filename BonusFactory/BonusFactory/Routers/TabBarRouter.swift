@@ -31,7 +31,12 @@ class TabBarRouter: ObservableObject {
     }
 
     @ViewBuilder func settingsTab() -> some View {
-        VStack { Text("Settings") }
+        VStack {
+            Text("Settings")
+            Button("Log out") {
+                self.services.authService.signOut()
+            }
+        }
     }
 }
 

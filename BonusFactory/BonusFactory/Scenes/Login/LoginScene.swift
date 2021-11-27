@@ -19,10 +19,12 @@ struct LoginScene<ViewModel: LoginVMP>: View {
     
     var body: some View {
         VStack(alignment: .center) {
+            Text("Enter phone number")
             TextField("+38 (093) 000 00 00", text: $viewModel.phone)
                 .keyboardType(.phonePad)
             Button("Next", action: viewModel.onNext)
         }
+        .multilineTextAlignment(.center)
         .padding()
         .navigationTitle(Text("Welcome!"))
     }
