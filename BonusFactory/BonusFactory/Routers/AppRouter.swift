@@ -21,7 +21,7 @@ class AppRouter: ObservableObject {
     // MARK: - Private vars
     private var services: Services
     private var anyCancellables = Set<AnyCancellable>()
-
+    
     // MARK: - Initialization
     init(services: Services) {
         self.services = services
@@ -34,14 +34,16 @@ class AppRouter: ObservableObject {
     }
     // MARK: - Private Methods
     private func setBindings() {
-        services.authService.isLoggedIn.sink { [weak self] value in
-            if value == true {
-                self?.screen = .tab
-            } else {
-                self?.screen = .login
+        services.dataService.isLoggedIn
+            .removeDuplicates()
+            .sink { [weak self] value in
+                if let _value = value {
+                    self?.screen = _value ? .tab: .login
+                } else {
+                    self?.screen = .launch
+                }
             }
-        }
-        .store(in: &self.anyCancellables)
+            .store(in: &self.anyCancellables)
     }
     
     // MARK: - Methods
@@ -52,7 +54,7 @@ class AppRouter: ObservableObject {
     @ViewBuilder func tabScreen() -> some View {
         TabBarRouterView(router: TabBarRouter(services: self.services))
     }
-
+    
     @ViewBuilder func lauchScreen() -> some View {
         LaunchScene(viewModel: LaunchViewModel(services: services))
     }

@@ -13,25 +13,30 @@ typealias VoidHandler = () -> Void
 typealias ErrorHandler = (Error?) -> Void
 
 protocol AuthService {
-    var isLoggedIn: CurrentValueSubject<Bool, Never> { get }
-    
     func auth(phone: String, completion: @escaping ErrorHandler)
     func verifyCode(code: String, completion: @escaping ErrorHandler)
-
+    
+    func fetchCurrentUser()
     func signOut()
 }
 
 class AppAuthService: AuthService {
     
-    var isLoggedIn: CurrentValueSubject<Bool, Never>
-    
-    private var networkManager: NetworkManager
+    private var dataManager: DataManager
     
     private var verificationId: String?
     
-    init(networkManager: NetworkManager) {
-        self.networkManager = networkManager
-        self.isLoggedIn = .init(false)
+    init(dataManager: DataManager) {
+        self.dataManager = dataManager
+    }
+    
+    func fetchCurrentUser() {
+        if let currentUser = Auth.auth().currentUser {
+            Logger.print("Current user: \(currentUser)")
+            self.dataManager.isLoggedIn.send(true)
+        } else {
+            self.dataManager.isLoggedIn.send(false)
+        }
     }
     
     func auth(phone: String, completion: @escaping ErrorHandler) {
@@ -54,7 +59,7 @@ class AppAuthService: AuthService {
     func verifyCode(code: String, completion: @escaping ErrorHandler) {
         //self.isLoggedIn.send(true)
         //return completion(nil)
-
+        
         guard let verificationId = verificationId else {
             return completion(nil)
         }
@@ -68,7 +73,7 @@ class AppAuthService: AuthService {
             if let result = result {
                 Logger.print("Result: \(result)")
                 Logger.print("Uid: \(result.user.uid)")
-                self.isLoggedIn.send(true)
+                self.dataManager.isLoggedIn.send(true)
                 completion(nil)
             } else {
                 completion(error)
@@ -79,7 +84,7 @@ class AppAuthService: AuthService {
     func signOut() {
         do {
             try Auth.auth().signOut()
-            isLoggedIn.send(false)
+            dataManager.isLoggedIn.send(false)
         } catch let signOutError as NSError {
             Logger.print("Error signing out: \(signOutError)")
         }

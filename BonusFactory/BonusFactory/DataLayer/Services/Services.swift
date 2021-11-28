@@ -10,15 +10,19 @@ import Foundation
 protocol Services {
     var authService: AuthService { get }
     var dataService: DataService { get }
+    var userService: UserService { get }
 }
 
 class AppServices: Services {
-    var authService: AuthService
-    var dataService: DataService
+    let authService: AuthService
+    let dataService: DataService
+    let userService: UserService
 
     init() {
-        let networkManager = AppNetworkManager()
-        self.authService = AppAuthService(networkManager: networkManager)
-        self.dataService = AppDataService()
+        //let networkManager = AppNetworkManager()
+        let dataManager = AppDataManager()
+        self.dataService = AppDataService(dataManager: dataManager)
+        self.authService = AppAuthService(dataManager: dataManager)
+        self.userService = AppUserService(dataManager: dataManager)
     }
 }

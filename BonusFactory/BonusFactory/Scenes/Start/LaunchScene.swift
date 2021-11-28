@@ -7,20 +7,14 @@
 
 import SwiftUI
 
-enum LaunchEvent {
-    case onLogin
-}
-
 struct LaunchScene: View {
     
     @ObservedObject var viewModel: LaunchViewModel
     
     var body: some View {
         VStack {
-            if viewModel.isLoading {
                 ProgressView()
                     .padding()
-            }
         }
     }
 }
