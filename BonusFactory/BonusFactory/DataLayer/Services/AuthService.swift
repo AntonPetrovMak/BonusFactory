@@ -35,7 +35,7 @@ class AppAuthService: AuthService {
     }
     
     func auth(phone: String, completion: @escaping ErrorHandler) {
-        return completion(nil)
+        //return completion(nil)
         
         //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
         PhoneAuthProvider.provider()
@@ -52,8 +52,8 @@ class AppAuthService: AuthService {
     }
     
     func verifyCode(code: String, completion: @escaping ErrorHandler) {
-        self.isLoggedIn.send(true)
-        return completion(nil)
+        //self.isLoggedIn.send(true)
+        //return completion(nil)
 
         guard let verificationId = verificationId else {
             return completion(nil)

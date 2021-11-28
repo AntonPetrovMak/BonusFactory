@@ -12,24 +12,29 @@ import Firebase
 struct BonusFactoryApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    private let services: Services
 
     init() {
-        FirebaseApp.configure()
-        let services = AppServices()
-        self.services = services
+
     }
     
     var body: some SwiftUI.Scene {
         WindowGroup {
-            AppRouterView(router: AppRouter(services: services))
+            if let services = delegate.services {
+                AppRouterView(router: AppRouter(services: services))
+            } else {
+                Text("Text")
+            }
         }
     }
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    var services: Services?
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        self.services = AppServices()
         return true
     }
     
