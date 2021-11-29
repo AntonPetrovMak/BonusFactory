@@ -8,7 +8,9 @@ extension Decodable {
         guard let dataDict = dataDict, !(dataDict is NSNull) else { return nil }
         do {
             let jsonData: Data = try JSONSerialization.data(withJSONObject: dataDict, options: [])
-            self = try JSONDecoder().decode(Self.self, from: jsonData)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            self = try decoder.decode(Self.self, from: jsonData)
         } catch {
             return nil
         }
@@ -40,7 +42,9 @@ extension Decodable {
 extension Encodable {
     
     var encodeData: Data? {
-        return try? JSONEncoder().encode(self)
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        return try? encoder.encode(self)
     }
     
     var encodeString: String? {
@@ -55,6 +59,7 @@ extension Encodable {
     
     func printDescription() {
         let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
         encoder.outputFormatting = .prettyPrinted
         if let str = try? encoder.encode(self).stringUtf8 {
             print(str)

@@ -9,6 +9,8 @@ import SwiftUI
 
 protocol DashboardVMP: ObservableObject {
     var points: String { get }
+    var userName: String { get }
+    var companyName: String { get }
 }
 
 struct DashboardScene<ViewModel: DashboardVMP>: View {
@@ -18,10 +20,9 @@ struct DashboardScene<ViewModel: DashboardVMP>: View {
     var body: some View {
         VStack {
             VStack {
-                HStack(spacing: 10) {
-                    Text("Points:")
-                    Text(viewModel.points)
-                }
+                Text("Points: \(viewModel.points)")
+                Text("User name: \(viewModel.userName)")
+                Text("Organization name: \(viewModel.companyName)")
                 .font(.system(size: 16))
                 Spacer()
             }

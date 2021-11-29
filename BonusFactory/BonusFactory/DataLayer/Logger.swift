@@ -9,6 +9,6 @@ import Foundation
 
 public enum Logger {
     public static func print(_ string: String) {
-        debugPrint(string)
+        Swift.print(string)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B11251F275591FE00C28FAD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11251E275591FE00C28FAD /* News.swift */; };
 		2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06B0274EFE6000B53E79 /* LoginScene.swift */; };
 		2B1E06B8274EFFA100B53E79 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06B7274EFFA100B53E79 /* AuthService.swift */; };
 		2B1E06BB274EFFDB00B53E79 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06BA274EFFDB00B53E79 /* Services.swift */; };
@@ -34,9 +35,13 @@
 		2BE8D0042754F46B001C3CB4 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8D0032754F46B001C3CB4 /* DashboardViewModel.swift */; };
 		2BE8D0082754F8AC001C3CB4 /* BFUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8D0072754F8AC001C3CB4 /* BFUser.swift */; };
 		2BE8D00C2754FA02001C3CB4 /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8D00B2754FA02001C3CB4 /* CodableExtension.swift */; };
+		2BE8D01227554ABD001C3CB4 /* OrganizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8D01127554ABD001C3CB4 /* OrganizationService.swift */; };
+		2BE8D01527554D87001C3CB4 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8D01427554D87001C3CB4 /* Organization.swift */; };
+		2BE8D01827555187001C3CB4 /* EnumDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8D01727555187001C3CB4 /* EnumDecodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B11251E275591FE00C28FAD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		2B1E06B0274EFE6000B53E79 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		2B1E06B7274EFFA100B53E79 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B1E06BA274EFFDB00B53E79 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -63,6 +68,9 @@
 		2BE8D0032754F46B001C3CB4 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		2BE8D0072754F8AC001C3CB4 /* BFUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFUser.swift; sourceTree = "<group>"; };
 		2BE8D00B2754FA02001C3CB4 /* CodableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtension.swift; sourceTree = "<group>"; };
+		2BE8D01127554ABD001C3CB4 /* OrganizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationService.swift; sourceTree = "<group>"; };
+		2BE8D01427554D87001C3CB4 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		2BE8D01727555187001C3CB4 /* EnumDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumDecodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 			children = (
 				2B1E06B7274EFFA100B53E79 /* AuthService.swift */,
 				2B81A4E5275285F1004A2356 /* DataService.swift */,
+				2BE8D01127554ABD001C3CB4 /* OrganizationService.swift */,
 				2B1E06BA274EFFDB00B53E79 /* Services.swift */,
 				2BE8CFF927543B22001C3CB4 /* UserService.swift */,
 			);
@@ -211,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				2BE8D0072754F8AC001C3CB4 /* BFUser.swift */,
+				2BE8D01427554D87001C3CB4 /* Organization.swift */,
+				2B11251E275591FE00C28FAD /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				2BE8D00B2754FA02001C3CB4 /* CodableExtension.swift */,
+				2BE8D01727555187001C3CB4 /* EnumDecodable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,15 +319,19 @@
 				2B1E06BE274F012000B53E79 /* LaunchScene.swift in Sources */,
 				2BE8D0012754F45D001C3CB4 /* DashboardScene.swift in Sources */,
 				2BE8D0042754F46B001C3CB4 /* DashboardViewModel.swift in Sources */,
+				2BE8D01827555187001C3CB4 /* EnumDecodable.swift in Sources */,
 				2B81A4E2275156BE004A2356 /* ConfirmSMSViewModel.swift in Sources */,
 				2B1E06CC274F049400B53E79 /* LaunchViewModel.swift in Sources */,
 				2B93BDF2275043E60006BF24 /* TabBarRouter.swift in Sources */,
 				2BE8CFFD27543C0B001C3CB4 /* DataManager.swif.swift in Sources */,
+				2BE8D01227554ABD001C3CB4 /* OrganizationService.swift in Sources */,
 				2B2C015D27502F2300CFCC3B /* LoginViewModel.swift in Sources */,
 				2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */,
 				2B81A4DE275156A5004A2356 /* ConfirmSMSScene.swift in Sources */,
+				2BE8D01527554D87001C3CB4 /* Organization.swift in Sources */,
 				2B81A4E6275285F1004A2356 /* DataService.swift in Sources */,
 				2BE8D00C2754FA02001C3CB4 /* CodableExtension.swift in Sources */,
+				2B11251F275591FE00C28FAD /* News.swift in Sources */,
 				2B93BDE927503FEC0006BF24 /* Logger.swift in Sources */,
 				2B93BDE627503F2E0006BF24 /* AppRouter.swift in Sources */,
 				2BE8CFFA27543B22001C3CB4 /* UserService.swift in Sources */,
