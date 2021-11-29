@@ -23,13 +23,13 @@ class TabBarRouter: ObservableObject {
     
     // MARK: - Methods
     @ViewBuilder func dashboardTab() -> some View {
-        VStack { Text("Dashboard") }
+        DashboardScene(viewModel: DashboardViewModel(services: services))
     }
-
+    
     @ViewBuilder func qrTab() -> some View {
         VStack { Text("QR") }
     }
-
+    
     @ViewBuilder func settingsTab() -> some View {
         VStack {
             Text("Settings")
@@ -45,11 +45,13 @@ struct TabBarRouterView: View {
     
     var body: some View {
         TabView {
-            router.dashboardTab()
-                .tabItem {
-                    Label("Dashboard", systemImage: "questionmark.circle.fill")
-                }
-
+            NavigationView {
+                router.dashboardTab()
+            }
+            .tabItem {
+                Label("Dashboard", systemImage: "questionmark.circle.fill")
+            }
+            
             router.qrTab()
                 .tabItem {
                     Label("QR", systemImage: "house.fill")

@@ -33,6 +33,7 @@ class AppAuthService: AuthService {
     func fetchCurrentUser() {
         if let currentUser = Auth.auth().currentUser {
             Logger.print("Current user: \(currentUser)")
+            self.dataManager.userId = currentUser.uid
             self.dataManager.isLoggedIn.send(true)
         } else {
             self.dataManager.isLoggedIn.send(false)
@@ -73,7 +74,7 @@ class AppAuthService: AuthService {
             if let result = result {
                 Logger.print("Result: \(result)")
                 Logger.print("Uid: \(result.user.uid)")
-                self.dataManager.isLoggedIn.send(true)
+                self.fetchCurrentUser()
                 completion(nil)
             } else {
                 completion(error)
