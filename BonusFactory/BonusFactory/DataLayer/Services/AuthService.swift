@@ -23,20 +23,22 @@ protocol AuthService {
 class AppAuthService: AuthService {
     
     private var dataManager: DataManager
-    
+    private var syncServices: [Sychronizable]
     private var verificationId: String?
     
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, syncServices: [Sychronizable]) {
         self.dataManager = dataManager
+        self.syncServices = syncServices
     }
     
     func fetchCurrentUser() {
         if let currentUser = Auth.auth().currentUser {
             Logger.print("Current user: \(currentUser)")
-            self.dataManager.userId = currentUser.uid
-            self.dataManager.isLoggedIn.send(true)
+            dataManager.userId = currentUser.uid
+            dataManager.isLoggedIn.send(true)
+            startSyncOfServices(userId: currentUser.uid)
         } else {
-            self.dataManager.isLoggedIn.send(false)
+            dataManager.isLoggedIn.send(false)
         }
     }
     
@@ -89,5 +91,10 @@ class AppAuthService: AuthService {
         } catch let signOutError as NSError {
             Logger.print("Error signing out: \(signOutError)")
         }
+    }
+
+    // MARK: - Private
+    private func startSyncOfServices(userId: String) {
+        syncServices.forEach { $0.authSync(userId: userId) }
     }
 }

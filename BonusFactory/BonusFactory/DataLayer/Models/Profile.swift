@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BFUser: Codable {
+struct Profile: Codable {
     var name: String
     let points: Double
     

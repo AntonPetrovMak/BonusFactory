@@ -28,7 +28,7 @@ class AppOrganizationService: OrganizationService {
     }
 
     func syncOrdanization() {
-        networkManager.addOrdanizationListener { [weak self] result in
+        networkManager.subscribeOnOrdanization { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(model):

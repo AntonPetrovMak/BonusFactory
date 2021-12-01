@@ -8,8 +8,14 @@
 import Foundation
 
 struct News: Codable {
-    var type: String
+    //var type: String
     let date: Date
     let likes: Int
-    //let source: Any
+    let source: NewsSimple
+}
+
+struct NewsSimple: Codable {
+    let title: String
+    let description: String
+    let image: String
 }

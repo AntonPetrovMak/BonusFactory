@@ -10,13 +10,13 @@ import Combine
 protocol DataService {
     var isLoggedIn: CurrentValueSubject<Bool?, Never> { get }
     var userId: String? { get }
-    var currentUser: CurrentValueSubject<BFUser?, Never> { get }
+    var currentUser: CurrentValueSubject<Profile?, Never> { get }
 }
 
 class AppDataService: DataService {
     var isLoggedIn: CurrentValueSubject<Bool?, Never> { dataManager.isLoggedIn }
     var userId: String? { dataManager.userId }
-    var currentUser: CurrentValueSubject<BFUser?, Never> { dataManager.currentUser }
+    var currentUser: CurrentValueSubject<Profile?, Never> { dataManager.currentUser }
 
     private let dataManager: DataManager
     private var cancellableSet = Set<AnyCancellable>()

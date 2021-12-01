@@ -9,18 +9,23 @@ import Foundation
 import FirebaseFirestore
 
 protocol NetworkManager {
-    func createMockOrdanization()
-    func addOrdanizationListener(_ completion: @escaping (Result<Organization, Error>) -> Void)
-    func addUserListener(id: String, completion: @escaping (Result<BFUser, Error>) -> Void)
+    func subscribeOnProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
+
+    func subscribeOnNews(_ completion: @escaping (Result<[News], Error>) -> Void)
+    func addNews(_ news: News, _ completion: @escaping ErrorHandler)
+
+    func createMockOrdanization(_ completion: ErrorHandler?)
+    func subscribeOnOrdanization(_ completion: @escaping (Result<Organization, Error>) -> Void)
 }
 
 class AppNetworkManager: NetworkManager {
 
+    // MARK: - References
     private lazy var db: Firestore = {
         return Firestore.firestore()
     }()
 
-    private lazy var users: CollectionReference = {
+    private lazy var usersRef: CollectionReference = {
         return self.db.collection("users")
     }()
 
@@ -32,18 +37,37 @@ class AppNetworkManager: NetworkManager {
         return self.organizationRef.document("coffee_shop")
     }()
 
-    // MARK: - Public Methods
-    func addOrdanizationListener(_ completion: @escaping (Result<Organization, Error>) -> Void) {
-        currentOrganzationRef.addModelListener(completion)
-    }
+    private lazy var newsRef: CollectionReference = {
+        return self.db.collection("news")
+    }()
 
-    func addUserListener(id: String, completion: @escaping (Result<BFUser, Error>) -> Void) {
-        users
+    // MARK: - Public Methods
+    // MARK: - Profile
+    func subscribeOnProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void) {
+        usersRef
             .document(id)
             .addModelListener(completion)
     }
 
-    func createMockOrdanization() {
+    // MARK: - News
+    func subscribeOnNews(_ completion: @escaping (Result<[News], Error>) -> Void) {
+        newsRef.addModelsListener(completion)
+    }
+
+    func addNews(_ news: News, _ completion: @escaping ErrorHandler) {
+        guard let data = news.encodeParameters else {
+            completion(BFError.encodeModel)
+            return
+        }
+        newsRef.addDocument(data: data, completion: completion)
+    }
+    
+    // MARK: - Ordanization
+    func subscribeOnOrdanization(_ completion: @escaping (Result<Organization, Error>) -> Void) {
+        currentOrganzationRef.addModelListener(completion)
+    }
+
+    func createMockOrdanization(_ completion: ErrorHandler? = nil) {
         let name = "Coffee Shop"
         let docmentId = "coffee_shop"
         let paragraphs = [
@@ -78,18 +102,14 @@ class AppNetworkManager: NetworkManager {
         let org = Organization(abount: about, links: links, phones: phones, institutions: institutions, staff: staff)
 
         guard let data = org.encodeParameters else {
-            Logger.print("Error decode organization model !")
+            completion?(BFError.encodeModel)
             return
         }
+
         organizationRef
             .document(docmentId)
-            .setData(data) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: ")
-                }
-            }
+            .setData(data, completion: completion)
+        
     }
 }
 
@@ -97,11 +117,15 @@ class AppNetworkManager: NetworkManager {
 enum BFError: Error, LocalizedError {
     case somethingWentWrong
     case noOrganizations
+    case encodeModel
+    case decodeModel
     
     public var errorDescription: String? {
       switch self {
       case .somethingWentWrong,
-           .noOrganizations:
+           .noOrganizations,
+           .encodeModel,
+           .decodeModel:
         return "Something Went Wrong"
       }
     }
@@ -112,17 +136,14 @@ extension DocumentReference {
     static private func modelHandler<T: Codable>(snapshot: DocumentSnapshot?, error: Error?, completion: @escaping (Result<T, Error>) -> Void) {
         if let snapshot = snapshot,
            let model = T.init(from: snapshot.data()) {
-            Logger.print("✅Path: \(snapshot.documentID)")
-            Logger.print("Snapshot: \n\(model.printDescription())")
+            Logger.print("✅Snapshot: \n\(model.printDescription())")
             completion(.success(model))
         } else if let error = error {
-            Logger.print("❌Path: \(snapshot?.documentID ?? "???")")
-            Logger.print("Error: \(error.localizedDescription)")
+            Logger.print("❌Error: \(error.localizedDescription)")
             completion(.failure(error))
         } else {
-            Logger.print("❌Path: \(snapshot?.documentID ?? "???")")
-            Logger.print("Error: no error")
-            completion(.failure(BFError.somethingWentWrong))
+            Logger.print("❌Error: decode model error")
+            completion(.failure(BFError.decodeModel))
         }
     }
     
@@ -134,7 +155,6 @@ extension DocumentReference {
 }
 
 extension CollectionReference {
-    
     static private func modelsHandler<T: Codable>(snapshot: QuerySnapshot?, error: Error?, completion: @escaping (Result<[T], Error>) -> Void) {
         if let snapshot = snapshot {
             let models: [T] = snapshot.documents.compactMap { T.init(from: $0.data()) }
@@ -144,8 +164,8 @@ extension CollectionReference {
             Logger.print("❌Error: \(error.localizedDescription)")
             completion(.failure(error))
         } else {
-            Logger.print("❌Error: no error")
-            completion(.failure(BFError.somethingWentWrong))
+            Logger.print("❌Error: decode models error")
+            completion(.failure(BFError.decodeModel))
         }
     }
     
