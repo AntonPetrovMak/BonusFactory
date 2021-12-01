@@ -12,6 +12,7 @@
 		2B11252A27582AB800C28FAD /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11252927582AB800C28FAD /* DateFormatter+Date.swift */; };
 		2B11252E27582C7D00C28FAD /* QRScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11252D27582C7D00C28FAD /* QRScene.swift */; };
 		2B11253227582C9600C28FAD /* QRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11253127582C9600C28FAD /* QRViewModel.swift */; };
+		2B112535275837D000C28FAD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B112534275837D000C28FAD /* AuthManager.swift */; };
 		2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06B0274EFE6000B53E79 /* LoginScene.swift */; };
 		2B1E06B8274EFFA100B53E79 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06B7274EFFA100B53E79 /* AuthService.swift */; };
 		2B1E06BB274EFFDB00B53E79 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06BA274EFFDB00B53E79 /* Services.swift */; };
@@ -50,6 +51,7 @@
 		2B11252927582AB800C28FAD /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		2B11252D27582C7D00C28FAD /* QRScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScene.swift; sourceTree = "<group>"; };
 		2B11253127582C9600C28FAD /* QRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewModel.swift; sourceTree = "<group>"; };
+		2B112534275837D000C28FAD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		2B1E06B0274EFE6000B53E79 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		2B1E06B7274EFFA100B53E79 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B1E06BA274EFFDB00B53E79 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -142,8 +144,9 @@
 		2B1E06B6274EFF7500B53E79 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */,
+				2B112534275837D000C28FAD /* AuthManager.swift */,
 				2BE8CFFC27543C0B001C3CB4 /* DataManager.swif.swift */,
+				2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				2B81A4DE275156A5004A2356 /* ConfirmSMSScene.swift in Sources */,
 				2BE8D01527554D87001C3CB4 /* Organization.swift in Sources */,
 				2B81A4E6275285F1004A2356 /* DataService.swift in Sources */,
+				2B112535275837D000C28FAD /* AuthManager.swift in Sources */,
 				2BE8D00C2754FA02001C3CB4 /* CodableExtension.swift in Sources */,
 				2B11251F275591FE00C28FAD /* News.swift in Sources */,
 				2B93BDE927503FEC0006BF24 /* Logger.swift in Sources */,

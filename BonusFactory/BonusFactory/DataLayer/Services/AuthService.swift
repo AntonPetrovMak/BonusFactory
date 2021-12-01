@@ -23,11 +23,15 @@ protocol AuthService {
 class AppAuthService: AuthService {
     
     private var dataManager: DataManager
+    private var authManager: AuthManager
+    private var networkManager: NetworkManager
     private var syncServices: [Sychronizable]
     private var verificationId: String?
     
-    init(dataManager: DataManager, syncServices: [Sychronizable]) {
+    init(dataManager: DataManager, authManager: AuthManager, networkManager: NetworkManager, syncServices: [Sychronizable]) {
         self.dataManager = dataManager
+        self.authManager = authManager
+        self.networkManager = networkManager
         self.syncServices = syncServices
     }
     
@@ -46,17 +50,16 @@ class AppAuthService: AuthService {
         //return completion(nil)
         
         //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber("+380939858899", uiDelegate: nil) { verificationID, error in
-                if let verificationID = verificationID {
-                    Logger.print("VerificationID: \(verificationID)")
-                    self.verificationId = verificationID
-                    completion(nil)
-                } else {
-                    completion(error)
-                    //Logger.print("Error: \(error.debugDescription)")
-                }
+        authManager.auth(phone: "+380939858899") { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(verificationID):
+                self.verificationId = verificationID
+                completion(nil)
+            case let .failure(error):
+                completion(error)
             }
+        }
     }
     
     func verifyCode(code: String, completion: @escaping ErrorHandler) {
@@ -67,18 +70,19 @@ class AppAuthService: AuthService {
             return completion(nil)
         }
         
-        let credential = PhoneAuthProvider.provider().credential(
-            withVerificationID: verificationId,
-            verificationCode: "000000"
-        )
-        
-        Auth.auth().signIn(with: credential) { (result, error) in
-            if let result = result {
-                Logger.print("Result: \(result)")
-                Logger.print("Uid: \(result.user.uid)")
-                self.fetchCurrentUser()
-                completion(nil)
-            } else {
+        authManager.signIn(verificationId: verificationId, code: "000000") { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(authUser):
+                self.createProfileIfNeeded(authUser.uid, authUser.phoneNumber) { [weak self] error in
+                    if let error = error {
+                        completion(error)
+                    } else {
+                        self?.fetchCurrentUser()
+                        completion(nil)
+                    }
+                }
+            case let .failure(error):
                 completion(error)
             }
         }
@@ -94,6 +98,20 @@ class AppAuthService: AuthService {
     }
 
     // MARK: - Private
+    private func createProfileIfNeeded(_ userId: String, _ phone: String?, completion: @escaping ErrorHandler) {
+        networkManager.getProfile(id: userId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                completion(nil)
+            case let .failure(error):
+                Logger.error(error)
+                let profile = Profile(id: userId, phone: phone ?? "")
+                self.networkManager.createProfile(profile: profile, completion: completion)
+            }
+        }
+    }
+    
     private func startSyncOfServices(userId: String) {
         syncServices.forEach { $0.authSync(userId: userId) }
     }

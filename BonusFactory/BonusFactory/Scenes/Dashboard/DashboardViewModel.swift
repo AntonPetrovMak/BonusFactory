@@ -29,7 +29,7 @@ class DashboardViewModel: DashboardVMP {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] user in
                 self?.points = Int(user.points).description
-                self?.userName = user.name
+                self?.userName = "\(user.first ?? "") + \(user.last ?? "")"
             }
             .store(in: &cancellableSet)
 

@@ -9,6 +9,8 @@ import Foundation
 import FirebaseFirestore
 
 protocol NetworkManager {
+    func getProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
+    func createProfile(profile: Profile, completion: @escaping ErrorHandler)
     func subscribeOnProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
 
     func subscribeOnNews(_ completion: @escaping (Result<[News], Error>) -> Void)
@@ -43,6 +45,23 @@ class AppNetworkManager: NetworkManager {
 
     // MARK: - Public Methods
     // MARK: - Profile
+    func getProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void) {
+        usersRef
+            .document(id)
+            .getModelDocumnet(completion)
+    }
+
+    func createProfile(profile: Profile, completion: @escaping ErrorHandler) {
+        guard let data = profile.encodeParameters else {
+            completion(BFError.encodeModel)
+            return
+        }
+        usersRef
+            .document(profile.id)
+            .setData(data, completion: completion)
+
+    }
+
     func subscribeOnProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         usersRef
             .document(id)
@@ -152,6 +171,12 @@ extension DocumentReference {
             Self.modelHandler(snapshot: document, error: error, completion: completion)
         }
     }
+
+    func getModelDocumnet<T: Codable>(_ completion: @escaping (Result<T, Error>) -> Void) {
+        getDocument { (document, error) in
+            Self.modelHandler(snapshot: document, error: error, completion: completion)
+        }
+    }
 }
 
 extension CollectionReference {
@@ -177,6 +202,12 @@ extension CollectionReference {
 
     func addModelsListener<T: Codable>(_ completion: @escaping (Result<[T], Error>) -> Void) {
         addSnapshotListener { (snapshot, error) in
+            Self.modelsHandler(snapshot: snapshot, error: error, completion: completion)
+        }
+    }
+
+    func getModelsDocumnet<T: Codable>(_ completion: @escaping (Result<[T], Error>) -> Void) {
+        getDocuments { (snapshot, error) in
             Self.modelsHandler(snapshot: snapshot, error: error, completion: completion)
         }
     }

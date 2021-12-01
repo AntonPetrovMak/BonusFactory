@@ -9,8 +9,6 @@ import Combine
 
 protocol OrganizationService {
     var organization: CurrentValueSubject<Organization, Never> { get }
-    
-    func syncOrdanization()
 }
 
 class AppOrganizationService: OrganizationService {
@@ -24,10 +22,9 @@ class AppOrganizationService: OrganizationService {
     init(dataManager: DataManager, networkManager: NetworkManager) {
         self.dataManager = dataManager
         self.networkManager = networkManager
-        syncOrdanization()
     }
 
-    func syncOrdanization() {
+   fileprivate func syncOrdanization() {
         networkManager.subscribeOnOrdanization { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -37,5 +34,11 @@ class AppOrganizationService: OrganizationService {
                 break
             }
         }
+    }
+}
+
+extension AppOrganizationService: Sychronizable {
+    func authSync(userId: String) {
+        syncOrdanization()
     }
 }

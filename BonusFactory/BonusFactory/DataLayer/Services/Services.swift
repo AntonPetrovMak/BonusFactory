@@ -25,18 +25,23 @@ class AppServices: Services {
     init() {
         let networkManager = AppNetworkManager()
         let dataManager = AppDataManager()
+        let authManager = AppAuthManager()
         self.dataService = AppDataService(dataManager: dataManager)
         
         let appProfileService = AppProfileService(dataManager: dataManager, networkManager: networkManager)
         self.profileService = appProfileService
 
-        self.organizationService = AppOrganizationService(dataManager: dataManager, networkManager: networkManager)
+        let appOrganizationService = AppOrganizationService(dataManager: dataManager, networkManager: networkManager)
+        self.organizationService = appOrganizationService
         
         let appNewsService = AppNewsService(dataManager: dataManager, networkManager: networkManager)
         self.newsService = appNewsService
         
-        let syncServices: [Sychronizable] = [appProfileService, appNewsService]
-        self.authService = AppAuthService(dataManager: dataManager, syncServices: syncServices)
+        let syncServices: [Sychronizable] = [appProfileService, appNewsService, appOrganizationService]
+        self.authService = AppAuthService(dataManager: dataManager,
+                                          authManager: authManager,
+                                          networkManager: networkManager,
+                                          syncServices: syncServices)
     }
 }
 

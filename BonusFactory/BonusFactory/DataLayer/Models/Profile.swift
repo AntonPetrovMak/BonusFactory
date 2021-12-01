@@ -8,11 +8,35 @@
 import Foundation
 
 struct Profile: Codable {
-    var name: String
+    let id: String
+    var first: String?
+    var last: String?
+    var dateOfBirth: Date?
+    var city: String?
+    var gender: String?
+    var phone: String
+    var email: String?
     let points: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case points
+
+    init(
+        id: String,
+        first: String? = nil,
+        last: String? = nil,
+        dateOfBirth: Date? = nil,
+        city: String? = nil,
+        gender: String? = nil,
+        phone: String,
+        email: String? = nil,
+        points: Double = 0
+    ) {
+        self.id = id
+        self.first = first
+        self.last = last
+        self.dateOfBirth = dateOfBirth
+        self.city = city
+        self.gender = gender
+        self.phone = phone
+        self.email = email
+        self.points = points
     }
 }
