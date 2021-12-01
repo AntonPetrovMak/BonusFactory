@@ -49,7 +49,7 @@ class DashboardViewModel: DashboardVMP {
                     let description =
                         "Desc: \(item.source.description)\n" +
                         "Likes: \(item.likes)\n" +
-                        "Date: \(item.date)"
+                        "Date: \(item.createdAt.dateAndTime)"
                     
                     return .init(image: nil, title: item.source.title, description: description)
                 }
@@ -63,10 +63,9 @@ class DashboardViewModel: DashboardVMP {
             description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
             image: ""
         )
-        let news = News(date: Date(), likes: 2, source: source)
+        let news = News(createdAt: Date(), likes: 2, source: source)
         services.newsService.createNews(news) { (error) in
             Logger.error(error)
         }
     }
 }
-

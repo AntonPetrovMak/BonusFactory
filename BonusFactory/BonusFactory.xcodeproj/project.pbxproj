@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2B11251F275591FE00C28FAD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11251E275591FE00C28FAD /* News.swift */; };
 		2B11252727580FF600C28FAD /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11252627580FF600C28FAD /* NewsService.swift */; };
+		2B11252A27582AB800C28FAD /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11252927582AB800C28FAD /* DateFormatter+Date.swift */; };
+		2B11252E27582C7D00C28FAD /* QRScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11252D27582C7D00C28FAD /* QRScene.swift */; };
+		2B11253227582C9600C28FAD /* QRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11253127582C9600C28FAD /* QRViewModel.swift */; };
 		2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06B0274EFE6000B53E79 /* LoginScene.swift */; };
 		2B1E06B8274EFFA100B53E79 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06B7274EFFA100B53E79 /* AuthService.swift */; };
 		2B1E06BB274EFFDB00B53E79 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06BA274EFFDB00B53E79 /* Services.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		2B11251E275591FE00C28FAD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		2B11252627580FF600C28FAD /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		2B11252927582AB800C28FAD /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
+		2B11252D27582C7D00C28FAD /* QRScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScene.swift; sourceTree = "<group>"; };
+		2B11253127582C9600C28FAD /* QRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewModel.swift; sourceTree = "<group>"; };
 		2B1E06B0274EFE6000B53E79 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		2B1E06B7274EFFA100B53E79 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B1E06BA274EFFDB00B53E79 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -89,12 +95,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B11252C27582C5500C28FAD /* QRScene */ = {
+			isa = PBXGroup;
+			children = (
+				2B11252D27582C7D00C28FAD /* QRScene.swift */,
+				2B11253127582C9600C28FAD /* QRViewModel.swift */,
+			);
+			path = QRScene;
+			sourceTree = "<group>";
+		};
 		2B1E06AD274EFE1300B53E79 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2BE8CFFF2754F443001C3CB4 /* Dashboard */,
 				2B81A4DC27515688004A2356 /* ConfirmSMS */,
+				2BE8CFFF2754F443001C3CB4 /* Dashboard */,
 				2B1E06AF274EFE3300B53E79 /* Login */,
+				2B11252C27582C5500C28FAD /* QRScene */,
 				2B1E06C1274F012500B53E79 /* Start */,
 			);
 			path = Scenes;
@@ -233,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				2BE8D00B2754FA02001C3CB4 /* CodableExtension.swift */,
+				2B11252927582AB800C28FAD /* DateFormatter+Date.swift */,
 				2BE8D01727555187001C3CB4 /* EnumDecodable.swift */,
 			);
 			path = Extensions;
@@ -325,9 +342,11 @@
 				2BE8D01827555187001C3CB4 /* EnumDecodable.swift in Sources */,
 				2B81A4E2275156BE004A2356 /* ConfirmSMSViewModel.swift in Sources */,
 				2B1E06CC274F049400B53E79 /* LaunchViewModel.swift in Sources */,
+				2B11253227582C9600C28FAD /* QRViewModel.swift in Sources */,
 				2B93BDF2275043E60006BF24 /* TabBarRouter.swift in Sources */,
 				2BE8CFFD27543C0B001C3CB4 /* DataManager.swif.swift in Sources */,
 				2BE8D01227554ABD001C3CB4 /* OrganizationService.swift in Sources */,
+				2B11252A27582AB800C28FAD /* DateFormatter+Date.swift in Sources */,
 				2B2C015D27502F2300CFCC3B /* LoginViewModel.swift in Sources */,
 				2B1E06B1274EFE6000B53E79 /* LoginScene.swift in Sources */,
 				2B81A4DE275156A5004A2356 /* ConfirmSMSScene.swift in Sources */,
@@ -336,6 +355,7 @@
 				2BE8D00C2754FA02001C3CB4 /* CodableExtension.swift in Sources */,
 				2B11251F275591FE00C28FAD /* News.swift in Sources */,
 				2B93BDE927503FEC0006BF24 /* Logger.swift in Sources */,
+				2B11252E27582C7D00C28FAD /* QRScene.swift in Sources */,
 				2B11252727580FF600C28FAD /* NewsService.swift in Sources */,
 				2B93BDE627503F2E0006BF24 /* AppRouter.swift in Sources */,
 				2BE8CFFA27543B22001C3CB4 /* ProfileService.swift in Sources */,

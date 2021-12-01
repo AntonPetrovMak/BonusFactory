@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct News: Codable {
     //var type: String
-    let date: Date
+    let createdAt: Date
     let likes: Int
     let source: NewsSimple
 }
