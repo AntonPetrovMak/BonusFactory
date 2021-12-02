@@ -9,6 +9,9 @@ import Foundation
 import FirebaseFirestore
 
 protocol NetworkManager {
+    func subscribeOnActivities(userId: String, _ completion: @escaping (Result<[Activity], Error>) -> Void)
+    func addActivity(recipientId: String, activity: Activity, _ completion: @escaping ErrorHandler)
+
     func getProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
     func createProfile(profile: Profile, completion: @escaping ErrorHandler)
     func subscribeOnProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
@@ -27,6 +30,10 @@ class AppNetworkManager: NetworkManager {
         return Firestore.firestore()
     }()
 
+    private lazy var allActivitiesRef: CollectionReference = {
+        return self.db.collection("all_activities")
+    }()
+    
     private lazy var usersRef: CollectionReference = {
         return self.db.collection("users")
     }()
@@ -44,6 +51,25 @@ class AppNetworkManager: NetworkManager {
     }()
 
     // MARK: - Public Methods
+    // MARK: - Activities
+    func subscribeOnActivities(userId: String, _ completion: @escaping (Result<[Activity], Error>) -> Void) {
+        allActivitiesRef
+            .document(userId)
+            .collection("activities")
+            .addModelsListener(completion)
+    }
+
+    func addActivity(recipientId: String, activity: Activity, _ completion: @escaping ErrorHandler) {
+        guard let data = activity.encodeParameters else {
+            completion(BFError.encodeModel)
+            return
+        }
+        allActivitiesRef
+            .document(recipientId)
+            .collection("activities")
+            .document(activity.id)
+            .setData(data, completion: completion)
+    }
     // MARK: - Profile
     func getProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         usersRef

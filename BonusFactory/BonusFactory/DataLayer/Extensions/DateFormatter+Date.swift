@@ -12,7 +12,7 @@ extension Date {
     var dateAndTime: String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = .current
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         return dateFormatter.string(from: self)
     }
     

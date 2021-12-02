@@ -13,6 +13,7 @@ protocol Services {
     var profileService: ProfileService { get }
     var organizationService: OrganizationService { get }
     var newsService: NewsService { get }
+    var activitiesService: ActivitiesService { get }
 }
 
 class AppServices: Services {
@@ -21,6 +22,7 @@ class AppServices: Services {
     let profileService: ProfileService
     var organizationService: OrganizationService
     var newsService: NewsService
+    var activitiesService: ActivitiesService
 
     init() {
         let networkManager = AppNetworkManager()
@@ -37,7 +39,10 @@ class AppServices: Services {
         let appNewsService = AppNewsService(dataManager: dataManager, networkManager: networkManager)
         self.newsService = appNewsService
         
-        let syncServices: [Sychronizable] = [appProfileService, appNewsService, appOrganizationService]
+        let appActivitiesService = AppActivitiesService(dataManager: dataManager, networkManager: networkManager)
+        self.activitiesService = appActivitiesService
+        
+        let syncServices: [Sychronizable] = [appProfileService, appNewsService, appOrganizationService, appActivitiesService]
         self.authService = AppAuthService(dataManager: dataManager,
                                           authManager: authManager,
                                           networkManager: networkManager,

@@ -34,7 +34,7 @@ class AppNewsService: NewsService {
             case let .success(models):
                 self.news.send(models)
             case let .failure(error):
-                print("\(error)")
+                Logger.error(error)
             }
         }
     }

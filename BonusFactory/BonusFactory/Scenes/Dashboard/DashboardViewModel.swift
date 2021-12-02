@@ -14,6 +14,7 @@ class DashboardViewModel: DashboardVMP {
     @Published var userName: String = ""
     @Published var companyName: String = ""
     @Published var newsItems: [NewsItemView.Config] = []
+    @Published var activityItems: [ActivityItemView.Config] = []
     
     private let services: Services
     private var cancellableSet = Set<AnyCancellable>()
@@ -55,6 +56,22 @@ class DashboardViewModel: DashboardVMP {
                 }
             }
             .store(in: &cancellableSet)
+
+        services.activitiesService.activities
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] activities in
+                guard let self = self else { return }
+                self.activityItems = activities.map { item in
+                    let description =
+                        "Reason: \(item.source.reason)\n" +
+                        "Amount: \(item.source.amount)\n" +
+                        "Points: \(item.source.points)\n" +
+                        "Date: \(item.createdAt.dateAndTime)"
+                    
+                    return .init(title: item.type, description: description)
+                }
+            }
+            .store(in: &cancellableSet)
     }
 
     func onAddNews() {
@@ -68,4 +85,21 @@ class DashboardViewModel: DashboardVMP {
             Logger.error(error)
         }
     }
+
+    func onAddActivity() {
+        let userId = services.dataService.currentUser.value?.id ?? ""
+        let source = HistoryCashbackItem(reason: "Кэшбек за покупку", amount: 200, points: 20)
+        let activity = Activity(
+            id: UUID().uuidString,
+            userId: userId,
+            type: "cashback",
+            source: source,
+            createdAt: Date(),
+            authorId: UUID().uuidString
+        )
+        services.activitiesService.createActivity(recipientId: userId, activity: activity) { error in
+            Logger.error(error)
+        }
+    }
+    
 }
