@@ -18,6 +18,7 @@ protocol NetworkManager {
 
     func subscribeOnNews(_ completion: @escaping (Result<[News], Error>) -> Void)
     func addNews(_ news: News, _ completion: @escaping ErrorHandler)
+    func deleteNews(_ newsId: String, _ completion: @escaping ErrorHandler)
 
     func createMockOrdanization(_ completion: ErrorHandler?)
     func subscribeOnOrdanization(_ completion: @escaping (Result<Organization, Error>) -> Void)
@@ -70,6 +71,7 @@ class AppNetworkManager: NetworkManager {
             .document(activity.id)
             .setData(data, completion: completion)
     }
+
     // MARK: - Profile
     func getProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         usersRef
@@ -104,7 +106,15 @@ class AppNetworkManager: NetworkManager {
             completion(BFError.encodeModel)
             return
         }
-        newsRef.addDocument(data: data, completion: completion)
+        newsRef
+            .document(news.id)
+            .setData(data, completion: completion)
+    }
+
+    func deleteNews(_ newsId: String, _ completion: @escaping ErrorHandler) {
+        newsRef
+            .document(newsId)
+            .delete(completion: completion)
     }
     
     // MARK: - Ordanization

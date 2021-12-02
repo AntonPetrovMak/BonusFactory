@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 struct News: Codable {
     //var type: String
+    let id: String
     let createdAt: Date
     let likes: Int
     let source: NewsSimple

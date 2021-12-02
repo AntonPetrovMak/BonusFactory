@@ -71,6 +71,7 @@ struct NewsItemView: View {
         let image: UIImage?
         let title: String
         let description: String
+        let onDelete: VoidHandler?
     }
 
     var config: Config
@@ -81,8 +82,15 @@ struct NewsItemView: View {
                 Image(uiImage: image)
             }
             VStack {
-                Text(config.title)
-                    .font(.system(size: 20))
+                HStack {
+                    Text(config.title)
+                        .font(.system(size: 20))
+                    if let onDelete = config.onDelete {
+                        Button(action: onDelete) {
+                            Image(systemName: "xmark.circle")
+                        }
+                    }
+                }
                 Text(config.description)
                     .font(.system(size:16))
             }

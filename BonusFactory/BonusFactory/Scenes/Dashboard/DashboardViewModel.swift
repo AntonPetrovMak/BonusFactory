@@ -52,7 +52,7 @@ class DashboardViewModel: DashboardVMP {
                         "Likes: \(item.likes)\n" +
                         "Date: \(item.createdAt.dateAndTime)"
                     
-                    return .init(image: nil, title: item.source.title, description: description)
+                    return .init(image: nil, title: item.source.title, description: description, onDelete: { [weak self] in self?.deleteNews(item) })
                 }
             }
             .store(in: &cancellableSet)
@@ -80,7 +80,7 @@ class DashboardViewModel: DashboardVMP {
             description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
             image: ""
         )
-        let news = News(createdAt: Date(), likes: 2, source: source)
+        let news = News(id: UUID().uuidString, createdAt: Date(), likes: 2, source: source)
         services.newsService.createNews(news) { (error) in
             Logger.error(error)
         }
@@ -98,6 +98,14 @@ class DashboardViewModel: DashboardVMP {
             authorId: UUID().uuidString
         )
         services.activitiesService.createActivity(recipientId: userId, activity: activity) { error in
+            Logger.error(error)
+        }
+    }
+    
+    // MARK: - Private actions
+    
+    private func deleteNews(_ news: News) {
+        services.newsService.deleteNews(news.id) { error in
             Logger.error(error)
         }
     }

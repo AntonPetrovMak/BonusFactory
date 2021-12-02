@@ -11,6 +11,7 @@ protocol NewsService {
     var news: CurrentValueSubject<[News], Never> { get }
 
     func createNews(_ news: News, _ completion: @escaping ErrorHandler)
+    func deleteNews(_ newsId: String, _ completion: @escaping ErrorHandler)
 }
 
 class AppNewsService: NewsService {
@@ -41,6 +42,10 @@ class AppNewsService: NewsService {
     
     func createNews(_ news: News, _ completion: @escaping ErrorHandler) {
         networkManager.addNews(news, completion)
+    }
+
+    func deleteNews(_ newsId: String, _ completion: @escaping ErrorHandler) {
+        networkManager.deleteNews(newsId, completion)
     }
 }
 
