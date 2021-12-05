@@ -22,6 +22,32 @@
 		2B1E06CC274F049400B53E79 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06CB274F049400B53E79 /* LaunchViewModel.swift */; };
 		2B1E06E4274FEFF600B53E79 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */; };
 		2B2C015D27502F2300CFCC3B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2C015C27502F2300CFCC3B /* LoginViewModel.swift */; };
+		2B73F9FF275CD15900A14415 /* IBMPlexSans-Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9E7275CD15800A14415 /* IBMPlexSans-Text.ttf */; };
+		2B73FA00275CD15900A14415 /* IBMPlexSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9E8275CD15800A14415 /* IBMPlexSans-SemiBoldItalic.ttf */; };
+		2B73FA01275CD15900A14415 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9E9275CD15800A14415 /* IBMPlexSans-Medium.ttf */; };
+		2B73FA02275CD15900A14415 /* IBMPlexSans-TextItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9EA275CD15800A14415 /* IBMPlexSans-TextItalic.ttf */; };
+		2B73FA03275CD15900A14415 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9EB275CD15800A14415 /* IBMPlexSans-SemiBold.ttf */; };
+		2B73FA04275CD15900A14415 /* IBMPlexSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9EC275CD15800A14415 /* IBMPlexSans-MediumItalic.ttf */; };
+		2B73FA05275CD15900A14415 /* IBMPlexSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9ED275CD15800A14415 /* IBMPlexSans-LightItalic.ttf */; };
+		2B73FA06275CD15900A14415 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9EE275CD15800A14415 /* IBMPlexSans-ExtraLight.ttf */; };
+		2B73FA07275CD15900A14415 /* IBMPlexSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9EF275CD15800A14415 /* IBMPlexSans-Thin.ttf */; };
+		2B73FA08275CD15900A14415 /* IBMPlexSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F0275CD15800A14415 /* IBMPlexSans-ThinItalic.ttf */; };
+		2B73FA09275CD15900A14415 /* IBMPlexSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F1275CD15800A14415 /* IBMPlexSans-BoldItalic.ttf */; };
+		2B73FA0A275CD15900A14415 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F2275CD15800A14415 /* IBMPlexSans-Light.ttf */; };
+		2B73FA0B275CD15900A14415 /* IBMPlexSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F3275CD15800A14415 /* IBMPlexSans-Italic.ttf */; };
+		2B73FA0C275CD15900A14415 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F4275CD15800A14415 /* IBMPlexSans-Regular.ttf */; };
+		2B73FA0D275CD15900A14415 /* IBMPlexSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F5275CD15800A14415 /* IBMPlexSans-ExtraLightItalic.ttf */; };
+		2B73FA0E275CD15900A14415 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F6275CD15800A14415 /* IBMPlexSans-Bold.ttf */; };
+		2B73FA0F275CD15900A14415 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F8275CD15900A14415 /* SourceSansPro-Regular.ttf */; };
+		2B73FA10275CD15900A14415 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9F9275CD15900A14415 /* SourceSansPro-Bold.ttf */; };
+		2B73FA11275CD15900A14415 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9FA275CD15900A14415 /* SourceSansPro-Light.ttf */; };
+		2B73FA12275CD15900A14415 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9FB275CD15900A14415 /* SourceSansPro-Black.ttf */; };
+		2B73FA13275CD15900A14415 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9FC275CD15900A14415 /* SourceSansPro-ExtraLight.ttf */; };
+		2B73FA14275CD15900A14415 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9FD275CD15900A14415 /* SourceSansPro-BoldItalic.ttf */; };
+		2B73FA15275CD15900A14415 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B73F9FE275CD15900A14415 /* SourceSansPro-Semibold.ttf */; };
+		2B73FA1A275CD40700A14415 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B73FA19275CD40700A14415 /* Font+Extension.swift */; };
+		2B73FA1D275CD84500A14415 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B73FA1C275CD84500A14415 /* Images.swift */; };
+		2B73FA23275CDDFA00A14415 /* BFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B73FA22275CDDFA00A14415 /* BFButton.swift */; };
 		2B81A4CC27504EA2004A2356 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B81A4CB27504EA2004A2356 /* GoogleService-Info.plist */; };
 		2B81A4DE275156A5004A2356 /* ConfirmSMSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81A4DD275156A5004A2356 /* ConfirmSMSScene.swift */; };
 		2B81A4E2275156BE004A2356 /* ConfirmSMSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81A4E1275156BE004A2356 /* ConfirmSMSViewModel.swift */; };
@@ -63,6 +89,32 @@
 		2B1E06CB274F049400B53E79 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		2B1E06E3274FEFF600B53E79 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2B2C015C27502F2300CFCC3B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2B73F9E7275CD15800A14415 /* IBMPlexSans-Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Text.ttf"; sourceTree = "<group>"; };
+		2B73F9E8275CD15800A14415 /* IBMPlexSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9E9275CD15800A14415 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		2B73F9EA275CD15800A14415 /* IBMPlexSans-TextItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-TextItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9EB275CD15800A14415 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		2B73F9EC275CD15800A14415 /* IBMPlexSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9ED275CD15800A14415 /* IBMPlexSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9EE275CD15800A14415 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2B73F9EF275CD15800A14415 /* IBMPlexSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Thin.ttf"; sourceTree = "<group>"; };
+		2B73F9F0275CD15800A14415 /* IBMPlexSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9F1275CD15800A14415 /* IBMPlexSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9F2275CD15800A14415 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
+		2B73F9F3275CD15800A14415 /* IBMPlexSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Italic.ttf"; sourceTree = "<group>"; };
+		2B73F9F4275CD15800A14415 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		2B73F9F5275CD15800A14415 /* IBMPlexSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9F6275CD15800A14415 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		2B73F9F8275CD15900A14415 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		2B73F9F9275CD15900A14415 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		2B73F9FA275CD15900A14415 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		2B73F9FB275CD15900A14415 /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
+		2B73F9FC275CD15900A14415 /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2B73F9FD275CD15900A14415 /* SourceSansPro-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2B73F9FE275CD15900A14415 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
+		2B73FA19275CD40700A14415 /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		2B73FA1C275CD84500A14415 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		2B73FA22275CDDFA00A14415 /* BFButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFButton.swift; sourceTree = "<group>"; };
 		2B81A4CB27504EA2004A2356 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B81A4DD275156A5004A2356 /* ConfirmSMSScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSMSScene.swift; sourceTree = "<group>"; };
 		2B81A4E1275156BE004A2356 /* ConfirmSMSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSMSViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +229,62 @@
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
+		2B73F9E3275CD08E00A14415 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B73FA1C275CD84500A14415 /* Images.swift */,
+				2B73FA19275CD40700A14415 /* Font+Extension.swift */,
+				2B73F9E6275CD15800A14415 /* Font IBM Plex Sans */,
+				2B73F9F7275CD15900A14415 /* Font Sans Pro */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2B73F9E6275CD15800A14415 /* Font IBM Plex Sans */ = {
+			isa = PBXGroup;
+			children = (
+				2B73F9E7275CD15800A14415 /* IBMPlexSans-Text.ttf */,
+				2B73F9E8275CD15800A14415 /* IBMPlexSans-SemiBoldItalic.ttf */,
+				2B73F9E9275CD15800A14415 /* IBMPlexSans-Medium.ttf */,
+				2B73F9EA275CD15800A14415 /* IBMPlexSans-TextItalic.ttf */,
+				2B73F9EB275CD15800A14415 /* IBMPlexSans-SemiBold.ttf */,
+				2B73F9EC275CD15800A14415 /* IBMPlexSans-MediumItalic.ttf */,
+				2B73F9ED275CD15800A14415 /* IBMPlexSans-LightItalic.ttf */,
+				2B73F9EE275CD15800A14415 /* IBMPlexSans-ExtraLight.ttf */,
+				2B73F9EF275CD15800A14415 /* IBMPlexSans-Thin.ttf */,
+				2B73F9F0275CD15800A14415 /* IBMPlexSans-ThinItalic.ttf */,
+				2B73F9F1275CD15800A14415 /* IBMPlexSans-BoldItalic.ttf */,
+				2B73F9F2275CD15800A14415 /* IBMPlexSans-Light.ttf */,
+				2B73F9F3275CD15800A14415 /* IBMPlexSans-Italic.ttf */,
+				2B73F9F4275CD15800A14415 /* IBMPlexSans-Regular.ttf */,
+				2B73F9F5275CD15800A14415 /* IBMPlexSans-ExtraLightItalic.ttf */,
+				2B73F9F6275CD15800A14415 /* IBMPlexSans-Bold.ttf */,
+			);
+			path = "Font IBM Plex Sans";
+			sourceTree = "<group>";
+		};
+		2B73F9F7275CD15900A14415 /* Font Sans Pro */ = {
+			isa = PBXGroup;
+			children = (
+				2B73F9F8275CD15900A14415 /* SourceSansPro-Regular.ttf */,
+				2B73F9F9275CD15900A14415 /* SourceSansPro-Bold.ttf */,
+				2B73F9FA275CD15900A14415 /* SourceSansPro-Light.ttf */,
+				2B73F9FB275CD15900A14415 /* SourceSansPro-Black.ttf */,
+				2B73F9FC275CD15900A14415 /* SourceSansPro-ExtraLight.ttf */,
+				2B73F9FD275CD15900A14415 /* SourceSansPro-BoldItalic.ttf */,
+				2B73F9FE275CD15900A14415 /* SourceSansPro-Semibold.ttf */,
+			);
+			path = "Font Sans Pro";
+			sourceTree = "<group>";
+		};
+		2B73FA20275CDDBD00A14415 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2B73FA22275CDDFA00A14415 /* BFButton.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		2B81A4DC27515688004A2356 /* ConfirmSMS */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +330,8 @@
 				2BE60C68274EFC3A0004E268 /* Preview Content */,
 				2B93BDF9275045F70006BF24 /* Routers */,
 				2B1E06AD274EFE1300B53E79 /* Scenes */,
+				2B73FA20275CDDBD00A14415 /* UIComponents */,
+				2B73F9E3275CD08E00A14415 /* Resources */,
 			);
 			path = BonusFactory;
 			sourceTree = "<group>";
@@ -329,9 +439,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B73FA13275CD15900A14415 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				2B73FA0C275CD15900A14415 /* IBMPlexSans-Regular.ttf in Resources */,
+				2B73FA0A275CD15900A14415 /* IBMPlexSans-Light.ttf in Resources */,
+				2B73FA05275CD15900A14415 /* IBMPlexSans-LightItalic.ttf in Resources */,
+				2B73FA01275CD15900A14415 /* IBMPlexSans-Medium.ttf in Resources */,
+				2B73FA08275CD15900A14415 /* IBMPlexSans-ThinItalic.ttf in Resources */,
+				2B73FA10275CD15900A14415 /* SourceSansPro-Bold.ttf in Resources */,
+				2B73FA00275CD15900A14415 /* IBMPlexSans-SemiBoldItalic.ttf in Resources */,
+				2B73FA0D275CD15900A14415 /* IBMPlexSans-ExtraLightItalic.ttf in Resources */,
+				2B73FA09275CD15900A14415 /* IBMPlexSans-BoldItalic.ttf in Resources */,
+				2B73FA04275CD15900A14415 /* IBMPlexSans-MediumItalic.ttf in Resources */,
+				2B73FA12275CD15900A14415 /* SourceSansPro-Black.ttf in Resources */,
+				2B73F9FF275CD15900A14415 /* IBMPlexSans-Text.ttf in Resources */,
+				2B73FA0E275CD15900A14415 /* IBMPlexSans-Bold.ttf in Resources */,
+				2B73FA06275CD15900A14415 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				2B73FA11275CD15900A14415 /* SourceSansPro-Light.ttf in Resources */,
+				2B73FA14275CD15900A14415 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				2BE60C6A274EFC3A0004E268 /* Preview Assets.xcassets in Resources */,
 				2BE60C67274EFC3A0004E268 /* Assets.xcassets in Resources */,
+				2B73FA0B275CD15900A14415 /* IBMPlexSans-Italic.ttf in Resources */,
+				2B73FA0F275CD15900A14415 /* SourceSansPro-Regular.ttf in Resources */,
+				2B73FA15275CD15900A14415 /* SourceSansPro-Semibold.ttf in Resources */,
 				2B81A4CC27504EA2004A2356 /* GoogleService-Info.plist in Resources */,
+				2B73FA03275CD15900A14415 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				2B73FA07275CD15900A14415 /* IBMPlexSans-Thin.ttf in Resources */,
+				2B73FA02275CD15900A14415 /* IBMPlexSans-TextItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +477,8 @@
 			files = (
 				2B1E06BB274EFFDB00B53E79 /* Services.swift in Sources */,
 				2B1E06E4274FEFF600B53E79 /* NetworkManager.swift in Sources */,
+				2B73FA1A275CD40700A14415 /* Font+Extension.swift in Sources */,
+				2B73FA1D275CD84500A14415 /* Images.swift in Sources */,
 				2B11253927592AA200C28FAD /* Activity.swift in Sources */,
 				2BE8D0082754F8AC001C3CB4 /* Profile.swift in Sources */,
 				2B1E06BE274F012000B53E79 /* LaunchScene.swift in Sources */,
@@ -353,6 +488,7 @@
 				2B81A4E2275156BE004A2356 /* ConfirmSMSViewModel.swift in Sources */,
 				2B1E06CC274F049400B53E79 /* LaunchViewModel.swift in Sources */,
 				2B11253227582C9600C28FAD /* QRViewModel.swift in Sources */,
+				2B73FA23275CDDFA00A14415 /* BFButton.swift in Sources */,
 				2B93BDF2275043E60006BF24 /* TabBarRouter.swift in Sources */,
 				2BE8CFFD27543C0B001C3CB4 /* DataManager.swif.swift in Sources */,
 				2BE8D01227554ABD001C3CB4 /* OrganizationService.swift in Sources */,
