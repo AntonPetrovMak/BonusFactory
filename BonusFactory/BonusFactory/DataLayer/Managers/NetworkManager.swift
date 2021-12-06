@@ -15,6 +15,7 @@ protocol NetworkManager {
     func getProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
     func createProfile(profile: Profile, completion: @escaping ErrorHandler)
     func subscribeOnProfile(id: String, completion: @escaping (Result<Profile, Error>) -> Void)
+    func updatePoints(userId: String, amount: Int, completion: @escaping ErrorHandler)
 
     func subscribeOnNews(_ completion: @escaping (Result<[News], Error>) -> Void)
     func addNews(_ news: News, _ completion: @escaping ErrorHandler)
@@ -25,6 +26,10 @@ protocol NetworkManager {
 }
 
 class AppNetworkManager: NetworkManager {
+
+    enum Fields {
+        static let points = "points"
+    }
 
     // MARK: - References
     private lazy var db: Firestore = {
@@ -94,6 +99,12 @@ class AppNetworkManager: NetworkManager {
         usersRef
             .document(id)
             .addModelListener(completion)
+    }
+
+    func updatePoints(userId: String, amount: Int, completion: @escaping ErrorHandler) {
+        usersRef
+            .document(userId)
+            .updateData([Fields.points: amount], completion: completion)
     }
 
     // MARK: - News

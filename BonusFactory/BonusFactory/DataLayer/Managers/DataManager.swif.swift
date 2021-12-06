@@ -10,16 +10,16 @@ import Combine
 protocol DataManager {
     var isLoggedIn: CurrentValueSubject<Bool?, Never> { get }
     var userId: String? { get set }
-    var currentUser: CurrentValueSubject<Profile?, Never> { get }
+    var profile: CurrentValueSubject<Profile?, Never> { get }
 }
 
 class AppDataManager: DataManager {
     var isLoggedIn: CurrentValueSubject<Bool?, Never>
     var userId: String?
-    var currentUser: CurrentValueSubject<Profile?, Never>
+    var profile: CurrentValueSubject<Profile?, Never>
     
     init() {
         self.isLoggedIn = .init(nil)
-        self.currentUser = .init(nil)
+        self.profile = .init(nil)
     }
 }

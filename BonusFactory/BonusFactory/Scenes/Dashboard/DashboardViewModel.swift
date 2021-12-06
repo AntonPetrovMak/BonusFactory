@@ -25,12 +25,12 @@ class DashboardViewModel: DashboardVMP {
     }
 
     private func bind() {
-        services.dataService.currentUser
+        services.dataService.profile
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] user in
                 self?.points = Int(user.points).description
-                self?.userName = "\(user.first ?? "") + \(user.last ?? "")"
+                self?.userName = user.fullname
             }
             .store(in: &cancellableSet)
 
@@ -87,7 +87,7 @@ class DashboardViewModel: DashboardVMP {
     }
 
     func onAddActivity() {
-        let userId = services.dataService.currentUser.value?.id ?? ""
+        let userId = services.dataService.profile.value?.id ?? ""
         let source = HistoryCashbackItem(reason: "Кэшбек за покупку", amount: 200, points: 20)
         let activity = Activity(
             id: UUID().uuidString,

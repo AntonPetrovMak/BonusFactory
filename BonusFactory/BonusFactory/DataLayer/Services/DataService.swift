@@ -9,12 +9,12 @@ import Combine
 
 protocol DataService {
     var isLoggedIn: CurrentValueSubject<Bool?, Never> { get }
-    var currentUser: CurrentValueSubject<Profile?, Never> { get }
+    var profile: CurrentValueSubject<Profile?, Never> { get }
 }
 
 class AppDataService: DataService {
     var isLoggedIn: CurrentValueSubject<Bool?, Never> { dataManager.isLoggedIn }
-    var currentUser: CurrentValueSubject<Profile?, Never> { dataManager.currentUser }
+    var profile: CurrentValueSubject<Profile?, Never> { dataManager.profile }
 
     private let dataManager: DataManager
     private var cancellableSet = Set<AnyCancellable>()
@@ -24,7 +24,7 @@ class AppDataService: DataService {
         self.isLoggedIn
             .filter({ $0 == false })
             .sink { [weak self] _ in
-                self?.currentUser.send(nil)
+                self?.profile.send(nil)
             }
             .store(in: &cancellableSet)
     }

@@ -50,7 +50,7 @@ class AppAuthService: AuthService {
         //return completion(nil)
         
         //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
-        authManager.auth(phone: "+380939858899") { [weak self] result in
+        authManager.auth(phone: phone) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(verificationID):
@@ -70,7 +70,7 @@ class AppAuthService: AuthService {
             return completion(nil)
         }
         
-        authManager.signIn(verificationId: verificationId, code: "000000") { [weak self] result in
+        authManager.signIn(verificationId: verificationId, code: code) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(authUser):

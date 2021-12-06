@@ -16,7 +16,7 @@ struct Profile: Codable {
     var gender: String?
     var phone: String
     var email: String?
-    let points: Double
+    let points: Int
 
     init(
         id: String,
@@ -27,7 +27,7 @@ struct Profile: Codable {
         gender: String? = nil,
         phone: String,
         email: String? = nil,
-        points: Double = 0
+        points: Int = 0
     ) {
         self.id = id
         self.first = first
@@ -38,5 +38,19 @@ struct Profile: Codable {
         self.phone = phone
         self.email = email
         self.points = points
+    }
+}
+
+extension Profile {
+    var fullname: String {
+        if let first = first, let last = last {
+            return "\(first) \(last)"
+        } else if let first = first {
+            return "\(first)"
+        } else if let last = last {
+            return "\(last)"
+        } else {
+            return "No name"
+        }
     }
 }

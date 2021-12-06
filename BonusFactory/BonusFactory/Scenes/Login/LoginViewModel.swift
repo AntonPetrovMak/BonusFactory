@@ -17,6 +17,9 @@ class LoginViewModel: LoginVMP {
     init(services: Services, router: LoginRouterProtocol) {
         self.services = services
         self.router = router
+        #if targetEnvironment(simulator)
+        phone = "+380939858899"
+        #endif
     }
 
     func onNext() {

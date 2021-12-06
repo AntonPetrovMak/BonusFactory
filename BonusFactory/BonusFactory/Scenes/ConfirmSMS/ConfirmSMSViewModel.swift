@@ -17,6 +17,9 @@ class ConfirmSMSViewModel: ConfirmSMSVMP {
 
     init(services: Services) {
         self.services = services
+        #if targetEnvironment(simulator)
+        code = "000000"
+        #endif
     }
 
     func onNext() {

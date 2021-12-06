@@ -29,6 +29,10 @@ class TabBarRouter: ObservableObject {
     @ViewBuilder func qrTab() -> some View {
         QRScene(viewModel: QRViewModel(services: services))
     }
+
+    @ViewBuilder func usePointsTab() -> some View {
+        UsePointsScene(viewModel: UsePointsViewModel(services: services))
+    }
     
     @ViewBuilder func settingsTab() -> some View {
         VStack {
@@ -56,13 +60,22 @@ struct TabBarRouterView: View {
                 router.qrTab()
             }
             .tabItem {
-                    Label("QR", systemImage: "house.fill")
-                }
+                Label("QR", systemImage: "house.fill")
+            }
+
+            NavigationView {
+                router.usePointsTab()
+            }
+            .tabItem {
+                Label("Use Points", systemImage: "house.fill")
+            }
             
-            router.settingsTab()
-                .tabItem {
-                    Label("Settings", systemImage: "person.fill")
-                }
+            NavigationView {
+                router.settingsTab()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "person.fill")
+            }
         }
     }
 }
