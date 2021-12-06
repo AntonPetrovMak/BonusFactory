@@ -25,6 +25,7 @@ struct LoginScene<ViewModel: LoginVMP>: View {
                 .padding(.top, 20)
             Text("Введите номер телефона для входа в приложение")
                 .font(.regular12)
+                .foregroundColor(.gray)
                 .padding(.vertical, 20)
             
             VStack(spacing: 15) {
