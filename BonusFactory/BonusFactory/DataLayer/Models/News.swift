@@ -19,5 +19,5 @@ struct News: Codable {
 struct NewsSimple: Codable {
     let title: String
     let description: String
-    let image: String
+    let image: String?
 }

@@ -75,15 +75,7 @@ class DashboardViewModel: DashboardVMP {
     }
 
     func onAddNews() {
-        let source = NewsSimple(
-            title: "Lorem ipsum",
-            description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
-            image: ""
-        )
-        let news = News(id: UUID().uuidString, createdAt: Date(), likes: 2, source: source)
-        services.newsService.createNews(news) { (error) in
-            Logger.error(error)
-        }
+
     }
 
     func onAddActivity() {

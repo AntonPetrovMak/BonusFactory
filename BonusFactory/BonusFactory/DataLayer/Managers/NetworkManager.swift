@@ -179,24 +179,6 @@ class AppNetworkManager: NetworkManager {
     }
 }
 
-// MARK: - Error
-enum BFError: Error, LocalizedError {
-    case somethingWentWrong
-    case noOrganizations
-    case encodeModel
-    case decodeModel
-    
-    public var errorDescription: String? {
-      switch self {
-      case .somethingWentWrong,
-           .noOrganizations,
-           .encodeModel,
-           .decodeModel:
-        return "Something Went Wrong"
-      }
-    }
-}
-
 // MARK: - Print Extensions
 extension DocumentReference {
     static private func modelHandler<T: Codable>(snapshot: DocumentSnapshot?, error: Error?, completion: @escaping (Result<T, Error>) -> Void) {

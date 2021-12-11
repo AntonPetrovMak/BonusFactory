@@ -30,6 +30,10 @@ class TabBarRouter: ObservableObject {
         QRScene(viewModel: QRViewModel(services: services))
     }
 
+    @ViewBuilder func manageNewsTab() -> some View {
+        ManageNewsScene(viewModel: ManageNewsViewModel(services: services))
+    }
+
     @ViewBuilder func usePointsTab() -> some View {
         UsePointsScene(viewModel: UsePointsViewModel(services: services))
     }
@@ -67,6 +71,13 @@ struct TabBarRouterView: View {
             }
             .tabItem {
                 Label("Use Points", systemImage: "house.fill")
+            }
+
+            NavigationView {
+                router.manageNewsTab()
+            }
+            .tabItem {
+                Label("Manage News", systemImage: "house.fill")
             }
             
             NavigationView {

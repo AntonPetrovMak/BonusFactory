@@ -28,6 +28,7 @@ class AppServices: Services {
         let networkManager = AppNetworkManager()
         let dataManager = AppDataManager()
         let authManager = AppAuthManager()
+        let uploadManager = AppUploadManager()
         self.dataService = AppDataService(dataManager: dataManager)
         
         let appProfileService = AppProfileService(dataManager: dataManager, networkManager: networkManager)
@@ -36,7 +37,7 @@ class AppServices: Services {
         let appOrganizationService = AppOrganizationService(dataManager: dataManager, networkManager: networkManager)
         self.organizationService = appOrganizationService
         
-        let appNewsService = AppNewsService(dataManager: dataManager, networkManager: networkManager)
+        let appNewsService = AppNewsService(dataManager: dataManager, networkManager: networkManager, uploadManager: uploadManager)
         self.newsService = appNewsService
         
         let appActivitiesService = AppActivitiesService(dataManager: dataManager, networkManager: networkManager)

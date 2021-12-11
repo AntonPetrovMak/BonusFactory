@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import PhotosUI
 
 class QRViewModel: QRSceneVMP {
     @Published var qrData: String = ""
@@ -17,6 +18,14 @@ class QRViewModel: QRSceneVMP {
     init(services: Services) {
         self.services = services
         bind()
+        let photos = PHPhotoLibrary.authorizationStatus()
+            if photos == .notDetermined {
+                PHPhotoLibrary.requestAuthorization({status in
+                    if status == .authorized{
+                        
+                    } else {}
+                })
+            }
     }
     
     private func bind() {
