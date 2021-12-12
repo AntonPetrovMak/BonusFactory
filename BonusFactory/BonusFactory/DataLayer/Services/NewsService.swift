@@ -12,7 +12,7 @@ protocol NewsService {
     var news: CurrentValueSubject<[News], Never> { get }
 
     func createNews(title: String, description: String, imageURL: URL?, completion: @escaping ErrorHandler)
-    func deleteNews(_ newsId: String, _ completion: @escaping ErrorHandler)
+    func deleteNews(_ news: News, _ completion: @escaping ErrorHandler)
 }
 
 class AppNewsService: NewsService {
@@ -21,13 +21,13 @@ class AppNewsService: NewsService {
 
     private let dataManager: DataManager
     private let networkManager: NetworkManager
-    private let uploadManager: UploadManager
+    private let storageManager: StorageManager
     private var cancellableSet = Set<AnyCancellable>()
     
-    init(dataManager: DataManager, networkManager: NetworkManager, uploadManager: UploadManager) {
+    init(dataManager: DataManager, networkManager: NetworkManager, storageManager: StorageManager) {
         self.dataManager = dataManager
         self.networkManager = networkManager
-        self.uploadManager = uploadManager
+        self.storageManager = storageManager
         self.news = .init([])
     }
 
@@ -45,7 +45,7 @@ class AppNewsService: NewsService {
     
     func createNews(title: String, description: String, imageURL: URL?, completion: @escaping ErrorHandler) {
         if let imageURL = imageURL {
-            uploadManager.upload(localFile: imageURL, progress: nil) { [weak self] result in
+            storageManager.upload(localFile: imageURL, progress: nil) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case let .success(fullPath):
@@ -68,8 +68,11 @@ class AppNewsService: NewsService {
         networkManager.addNews(news, completion)
     }
     
-    func deleteNews(_ newsId: String, _ completion: @escaping ErrorHandler) {
-        networkManager.deleteNews(newsId, completion)
+    func deleteNews(_ news: News, _ completion: @escaping ErrorHandler) {
+        if let imageURL = news.source.image {
+            storageManager.delete(url: imageURL) { _ in }
+        }
+        networkManager.deleteNews(news.id, completion)
     }
 }
 

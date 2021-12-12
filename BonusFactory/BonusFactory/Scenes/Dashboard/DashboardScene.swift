@@ -68,7 +68,7 @@ struct DashboardScene<ViewModel: DashboardVMP>: View {
 struct NewsItemView: View {
 
     struct Config {
-        let image: UIImage?
+        let urlImage: URL?
         let title: String
         let description: String
         let onDelete: VoidHandler?
@@ -78,8 +78,18 @@ struct NewsItemView: View {
 
     var body: some View {
         ZStack {
-            if let image = config.image {
-                Image(uiImage: image)
+            if let urlImage = config.urlImage {
+                AsyncImage(
+                   url: urlImage,
+                   placeholder: { Text("Loading ...") },
+                   image: {
+                    Image(uiImage: $0)
+                        .resizable()
+                   }
+                )
+                .scaledToFill()
+                .frame(width: 150, height: 150)
+                .clipped()
             }
             VStack {
                 HStack {

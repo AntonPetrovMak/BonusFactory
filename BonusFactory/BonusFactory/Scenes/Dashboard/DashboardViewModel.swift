@@ -52,7 +52,8 @@ class DashboardViewModel: DashboardVMP {
                         "Likes: \(item.likes)\n" +
                         "Date: \(item.createdAt.dateAndTime)"
                     
-                    return .init(image: nil, title: item.source.title, description: description, onDelete: { [weak self] in self?.deleteNews(item) })
+                    let urlImage = URL(string: item.source.image ?? "")
+                    return .init(urlImage: urlImage, title: item.source.title, description: description, onDelete: { [weak self] in self?.deleteNews(item) })
                 }
             }
             .store(in: &cancellableSet)
@@ -97,7 +98,7 @@ class DashboardViewModel: DashboardVMP {
     // MARK: - Private actions
     
     private func deleteNews(_ news: News) {
-        services.newsService.deleteNews(news.id) { error in
+        services.newsService.deleteNews(news) { error in
             Logger.error(error)
         }
     }
